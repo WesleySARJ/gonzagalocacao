@@ -1,391 +1,733 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <link rel="icon" type="image/png" href="images/ficon.png">
+	<link rel="icon" type="image/png" href="images/ficon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gonzaga Andaimes e Escoras Metálicas</title>
-  <meta name="description" content="Gonzaga Locação de Andaimes e Escoras Metálicas - Soluções seguras e resistentes para sua obra." />
+  <title>Gonzaga Andaimes | Locação e Venda de Andaimes e Equipamentos</title>
+  <meta name="description" content="Gonzaga Andaimes - Locação e venda de andaimes tubulares, escoras metálicas, plataformas de trabalho e equipamentos de segurança para construção civil." />
 
   <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Google Fonts: Oswald + Roboto -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --gz-orange: #f59e0b;
-      --gz-dark: #1f2937;
-      --gz-light: #f3f4f6;
-      --gz-yellow: #fbbf24;
+      --ga-primary: #1b2a4a;
+      --ga-secondary: #2c4373;
+      --ga-accent: #ff7a00;
+      --ga-accent-2: #ffb019;
+      --ga-dark: #0f172a;
+      --ga-light: #f4f6fb;
+      --ga-glass: rgba(255, 255, 255, 0.12);
+      --ga-glass-border: rgba(255, 255, 255, 0.25);
     }
 
     * { box-sizing: border-box; }
 
     body {
-      font-family: 'Roboto', sans-serif;
-      color: var(--gz-dark);
+      font-family: 'Poppins', sans-serif;
+      color: #1f2937;
       background-color: #ffffff;
-      margin: 0;
+      overflow-x: hidden;
     }
 
-    h1, h2, h3, h4, h5, h6, .navbar-brand, .display-4, .display-5 {
-      font-family: 'Oswald', sans-serif;
-      letter-spacing: 0.5px;
+    h1, h2, h3, h4, h5, .navbar-brand {
+      font-family: 'Montserrat', sans-serif;
     }
 
-    .text-orange { color: var(--gz-orange) !important; }
-    .text-yellow { color: var(--gz-yellow) !important; }
-    .bg-orange { background-color: var(--gz-orange) !important; }
-    .bg-dark-gz { background-color: var(--gz-dark) !important; }
-    .bg-light-gz { background-color: var(--gz-light) !important; }
+    .text-accent { color: var(--ga-accent) !important; }
+    .bg-primary-dark { background-color: var(--ga-primary) !important; }
+    .bg-accent { background-color: var(--ga-accent) !important; }
 
-    .btn-orange {
-      background-color: var(--gz-orange);
-      color: #fff;
-      border: none;
-      font-weight: 600;
-      transition: 0.25s ease;
-    }
-    .btn-orange:hover {
-      background-color: #d98a08;
-      color: #fff;
-    }
-
-    .btn-dark-gz {
-      background-color: var(--gz-dark);
-      color: #fff;
-      border: none;
-      font-weight: 600;
-      transition: 0.25s ease;
-    }
-    .btn-dark-gz:hover {
-      background-color: #111827;
-      color: #fff;
-    }
-
-    /* Navbar */
+    /* ===== Navbar ===== */
     .navbar {
-      background-color: var(--gz-dark);
+      transition: all 0.35s ease;
+      background: transparent;
+    }
+    .navbar.scrolled {
+      background: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      backdrop-filter: blur(8px);
     }
     .navbar-brand {
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.4rem;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: #fff !important;
+      letter-spacing: 0.5px;
     }
-    .navbar-brand span { color: var(--gz-orange); }
+    .navbar-brand .brand-accent { color: var(--ga-accent); }
     .navbar .nav-link {
-      color: #e5e7eb;
+      color: #e5e7eb !important;
       font-weight: 500;
-      transition: 0.2s;
-    }
-    .navbar .nav-link:hover,
-    .navbar .nav-link.active {
-      color: var(--gz-orange);
-    }
-
-    /* Hero */
-    .hero {
+      margin: 0 0.35rem;
       position: relative;
-      background-image: linear-gradient(rgba(31,41,55,0.78), rgba(31,41,55,0.82)),
-        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-      padding: 120px 0 110px;
     }
-    .hero h1 { font-weight: 700; }
-    .hero .lead { color: #e5e7eb; }
-
-    /* Section title */
-    .section-title {
-      font-weight: 600;
-      position: relative;
-      display: inline-block;
-      padding-bottom: 10px;
-    }
-    .section-title::after {
+    .navbar .nav-link::after {
       content: '';
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 0;
-      width: 70px;
-      height: 4px;
-      background-color: var(--gz-orange);
-      border-radius: 2px;
+      left: 12px; right: 12px; bottom: 6px;
+      height: 2px;
+      background: var(--ga-accent);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
     }
+    .navbar .nav-link:hover::after,
+    .navbar .nav-link.active::after { transform: scaleX(1); }
+    .navbar .nav-link:hover { color: #fff !important; }
 
-    /* Service Cards */
-    .service-card {
-      background: #fff;
-      border-top: 5px solid var(--gz-orange);
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(31,41,55,0.08);
-      padding: 35px 25px;
-      height: 100%;
+    .btn-wa-nav {
+      background: linear-gradient(135deg, var(--ga-accent), var(--ga-accent-2));
+      color: #fff !important;
+      border: none;
+      border-radius: 50px;
+      padding: 0.5rem 1.2rem;
+      font-weight: 600;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(31,41,55,0.14);
-    }
-    .service-icon {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      background-color: var(--gz-light);
-      color: var(--gz-orange);
+    .btn-wa-nav:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(255,122,0,0.45); }
+
+    /* ===== Hero ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1.9rem;
-      margin-bottom: 18px;
-    }
-
-    /* Features */
-    .feature-box i {
-      color: var(--gz-orange);
-      font-size: 1.6rem;
-    }
-
-    /* Form */
-    .form-control, .form-select {
-      border-radius: 8px;
-      border: 1px solid #d1d5db;
-      padding: 12px 14px;
-    }
-    .form-control:focus, .form-select:focus {
-      border-color: var(--gz-orange);
-      box-shadow: 0 0 0 0.2rem rgba(245,158,11,0.18);
-    }
-    .form-label { font-weight: 500; }
-
-    /* Floating WhatsApp Button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 60px;
-      height: 60px;
-      background-color: #25d366;
+      background:
+        linear-gradient(135deg, rgba(15,23,42,0.85), rgba(27,42,74,0.78)),
+        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       color: #fff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      text-decoration: none;
-      z-index: 999;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      padding-top: 90px;
     }
-    .whatsapp-float::before {
+    .hero h1 { font-weight: 800; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.1; }
+    .hero p.lead { font-size: 1.15rem; max-width: 620px; }
+    .hero .btn-primary-cta {
+      background: linear-gradient(135deg, var(--ga-accent), var(--ga-accent-2));
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .hero .btn-primary-cta:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(255,122,0,0.5); }
+    .hero .btn-outline-cta {
+      border: 2px solid #fff;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      background: transparent;
+      transition: all 0.25s ease;
+    }
+    .hero .btn-outline-cta:hover { background: #fff; color: var(--ga-primary); }
+
+    .hero-stats { gap: 2.5rem; }
+    .hero-stats .stat-num { font-size: 2rem; font-weight: 800; color: var(--ga-accent); }
+    .hero-stats .stat-label { font-size: 0.9rem; color: #cbd5e1; }
+
+    /* ===== Section base ===== */
+    section { padding: 90px 0; }
+    .section-title {
+      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--ga-primary);
+    }
+    .section-subtitle {
+      color: #6b7280;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .divider-accent {
+      width: 70px; height: 4px; border-radius: 4px;
+      background: linear-gradient(135deg, var(--ga-accent), var(--ga-accent-2));
+      margin: 16px auto;
+    }
+
+    /* ===== Serviços ===== */
+    .service-card {
+      border: none;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+    .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 45px rgba(15,23,42,0.15); }
+    .service-icon {
+      width: 64px; height: 64px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--ga-primary), var(--ga-secondary));
+      color: #fff; font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    /* ===== Diferenciais ===== */
+    .diferenciais {
+      background: linear-gradient(135deg, var(--ga-primary), var(--ga-secondary));
+      color: #fff;
+    }
+    .diferencial-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .diferencial-item i {
+      font-size: 2.6rem;
+      color: var(--ga-accent);
+      margin-bottom: 0.8rem;
+    }
+    .diferencial-item h5 { font-weight: 700; }
+    .diferencial-item p { color: #cbd5e1; }
+
+    /* ===== Catálogo de Produtos ===== */
+    .catalogo {
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(255,122,0,0.10), transparent),
+        radial-gradient(1000px 500px at 100% 10%, rgba(44,67,115,0.12), transparent),
+        linear-gradient(180deg, #f4f6fb 0%, #ffffff 100%);
+    }
+
+    .product-card {
+      position: relative;
+      border-radius: 22px;
+      padding: 1.6rem;
+      height: 100%;
+      background: var(--ga-glass);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--ga-glass-border);
+      box-shadow: 0 10px 30px rgba(15,23,42,0.10);
+      transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease, border-color 0.35s ease;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card::before {
       content: '';
       position: absolute;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background-color: #25d366;
-      z-index: -1;
-      opacity: 0.7;
-      animation: pulse 2s infinite;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.05));
+      opacity: 0.6;
+      pointer-events: none;
     }
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.7; }
-      70% { transform: scale(1.6); opacity: 0; }
-      100% { transform: scale(1.6); opacity: 0; }
+    .product-card:hover {
+      transform: translateY(-10px) scale(1.015);
+      box-shadow: 0 25px 55px rgba(15,23,42,0.22);
+      border-color: rgba(255,122,0,0.55);
     }
 
-    footer {
-      background-color: var(--gz-dark);
+    .product-icon {
+      width: 78px; height: 78px;
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem;
+      color: #fff;
+      background: linear-gradient(135deg, var(--ga-primary), var(--ga-secondary));
+      box-shadow: 0 10px 22px rgba(27,42,74,0.35);
+      margin-bottom: 1.1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .product-card h5 {
+      font-weight: 700;
+      color: var(--ga-primary);
+      position: relative;
+      z-index: 1;
+    }
+    .product-card .product-desc {
+      color: #4b5563;
+      font-size: 0.95rem;
+      min-height: 60px;
+      position: relative;
+      z-index: 1;
+    }
+    .product-price {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--ga-accent);
+      position: relative;
+      z-index: 1;
+    }
+    .product-price small { color: #6b7280; font-weight: 500; font-size: 0.8rem; }
+
+    .btn-wa-product {
+      background: linear-gradient(135deg, var(--ga-accent), var(--ga-accent-2));
+      color: #fff !important;
+      border: none;
+      border-radius: 50px;
+      padding: 0.6rem 1.1rem;
+      font-weight: 600;
+      width: 100%;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .btn-wa-product:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(255,122,0,0.5);
+      filter: brightness(1.05);
+      color: #fff;
+    }
+    .btn-wa-product i { margin-right: 6px; }
+
+    /* ===== Contato ===== */
+    .contato {
+      background: #f4f6fb;
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 1.4rem;
+    }
+    .contact-info-item i {
+      font-size: 1.4rem;
+      color: var(--ga-accent);
+      margin-top: 2px;
+    }
+    .form-control, .form-select {
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      border: 1px solid #d1d5db;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--ga-accent);
+      box-shadow: 0 0 0 0.2rem rgba(255,122,0,0.18);
+    }
+    .btn-submit {
+      background: linear-gradient(135deg, var(--ga-primary), var(--ga-secondary));
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 0.8rem 2rem;
+      font-weight: 600;
+    }
+    .btn-submit:hover { filter: brightness(1.1); }
+
+    /* ===== Footer ===== */
+    .footer {
+      background: var(--ga-dark);
       color: #cbd5e1;
+      padding: 60px 0 25px;
     }
-    footer a { color: #cbd5e1; text-decoration: none; }
-    footer a:hover { color: var(--gz-orange); }
+    .footer h6 {
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.95rem;
+    }
+    .footer a { color: #cbd5e1; text-decoration: none; transition: color 0.2s ease; }
+    .footer a:hover { color: var(--ga-accent); }
+    .footer .brand-accent { color: var(--ga-accent); }
 
-    .alert-form { display: none; }
+    .social-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .social-link {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.08);
+      color: #fff !important;
+      font-size: 1.2rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    }
+    .social-link:hover {
+      transform: translateY(-4px) scale(1.08);
+      background: linear-gradient(135deg, var(--ga-accent), var(--ga-accent-2));
+      box-shadow: 0 10px 22px rgba(255,122,0,0.45);
+      color: #fff !important;
+    }
+    .social-link.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .social-link.facebook:hover { background: #1877f2; }
+    .social-link.whatsapp:hover { background: #25d366; }
+    .social-link.linkedin:hover { background: #0a66c2; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+      margin-top: 35px;
+      font-size: 0.88rem;
+      color: #94a3b8;
+    }
+
+    /* ===== WhatsApp Float ===== */
+    .wa-float {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      width: 60px; height: 60px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 10px 30px rgba(37,211,102,0.5);
+      z-index: 999;
+      transition: transform 0.25s ease;
+    }
+    .wa-float:hover { transform: scale(1.1); color: #fff; }
+
+    @media (max-width: 768px) {
+      section { padding: 60px 0; }
+      .hero { min-height: auto; padding: 120px 0 70px; }
+      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+      .navbar { background: rgba(15,23,42,0.95); }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg sticky-top">
+  <!-- ===== Navbar ===== -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="#home">GONZAGA<span> | Andaimes</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Abrir menu">
-        <span class="navbar-toggler-icon"></span>
+      <a class="navbar-brand" href="#hero">
+        Gonzaga<span class="brand-accent"> Andaimes</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navMain">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" href="#home">Início</a></li>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#hero">Início</a></li>
           <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
           <li class="nav-item"><a class="nav-link" href="#diferenciais">Diferenciais</a></li>
+          <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
           <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <a class="btn btn-wa-nav" href="https://wa.me/5511995997771?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+              <i class="bi bi-whatsapp"></i> Orçamento
+            </a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header id="home" class="hero">
+  <!-- ===== Hero ===== -->
+  <header class="hero" id="hero">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <h1 class="display-4 mb-3">Gonzaga Locação de Andaimes e Escoras Metálicas</h1>
-          <p class="lead mb-4">Soluções seguras, resistentes e ágeis para sua obra. Locação de andaimes e escoras metálicas com qualidade garantida.</p>
-          <a href="#contato" class="btn btn-orange btn-lg me-2">Solicitar Orçamento</a>
-          <a href="#servicos" class="btn btn-dark-gz btn-lg">Nossos Serviços</a>
+      <div class="row align-items-center">
+        <div class="col-lg-8" data-aos="fade-up">
+          <span class="badge bg-accent mb-3 px-3 py-2 rounded-pill">Construção Civil &middot; Andaimes &middot; Segurança</span>
+          <h1>Soluções em <span class="text-accent">andaimes</span> e equipamentos para sua obra</h1>
+          <p class="lead mt-3">Locação e venda de andaimes tubulares, escoras metálicas, plataformas e proteção contra quedas. Qualidade, segurança e entrega rápida para a sua construção.</p>
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <a href="#catalogo" class="btn btn-primary-cta">Ver Catálogo</a>
+            <a href="#contato" class="btn btn-outline-cta">Solicitar Orçamento</a>
+          </div>
+          <div class="d-flex hero-stats mt-5">
+            <div>
+              <div class="stat-num">+15</div>
+              <div class="stat-label">Anos de experiência</div>
+            </div>
+            <div>
+              <div class="stat-num">+500</div>
+              <div class="stat-label">Obras atendidas</div>
+            </div>
+            <div>
+              <div class="stat-num">100%</div>
+              <div class="stat-label">Segurança garantida</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Serviços -->
-  <section id="servicos" class="py-5 bg-light-gz">
+  <!-- ===== Serviços ===== -->
+  <section id="servicos">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="section-title">Nossos Serviços</h2>
-        <p class="text-muted mt-3">Equipamentos de locação para obras e construções</p>
+        <div class="divider-accent"></div>
+        <p class="section-subtitle">Atendimento completo em locação e venda de equipamentos para construção civil, com suporte técnico especializado.</p>
       </div>
       <div class="row g-4">
         <div class="col-md-6 col-lg-4">
-          <div class="service-card">
+          <div class="card service-card p-4">
             <div class="service-icon"><i class="bi bi-bricks"></i></div>
-            <h4>Locação de Andaimes</h4>
-            <p class="text-muted">Andaimes tubulares modulares para acesso em altura com segurança e montagem rápida.</p>
+            <h5>Locação de Andaimes</h5>
+            <p class="text-muted mb-0">Andaimes tubulares e modulares para locação por diária, semana ou mês, com montagem e desmontagem técnica.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
-          <div class="service-card">
-            <div class="service-icon"><i class="bi bi-rulers"></i></div>
-            <h4>Escoras Metálicas</h4>
-            <p class="text-muted">Escoras metálicas ajustáveis para sustentação de lajes e estruturas com alta resistência.</p>
+          <div class="card service-card p-4">
+            <div class="service-icon"><i class="bi bi-cart-check"></i></div>
+            <h5>Venda de Equipamentos</h5>
+            <p class="text-muted mb-0">Venda de andaimes, escoras, plataformas e acessórios com garantia de qualidade e procedência.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
-          <div class="service-card">
-            <div class="service-icon"><i class="bi bi-truck"></i></div>
-            <h4>Entrega e Retirada</h4>
-            <p class="text-muted">Logística completa com entrega e retirada dos equipamentos no canteiro de obras.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card">
+          <div class="card service-card p-4">
             <div class="service-icon"><i class="bi bi-tools"></i></div>
-            <h4>Montagem Técnica</h4>
-            <p class="text-muted">Equipe especializada para montagem e desmontagem conforme normas de segurança.</p>
+            <h5>Montagem Técnica</h5>
+            <p class="text-muted mb-0">Equipe certificada para montagem e desmontagem segura, seguindo todas as normas de segurança do trabalho.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
-          <div class="service-card">
+          <div class="card service-card p-4">
+            <div class="service-icon"><i class="bi bi-truck"></i></div>
+            <h5>Entrega e Retirada</h5>
+            <p class="text-muted mb-0">Logística completa com entrega e retirada no canteiro de obras em toda a região metropolitana.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card service-card p-4">
             <div class="service-icon"><i class="bi bi-shield-check"></i></div>
-            <h4>Segurança Garantida</h4>
-            <p class="text-muted">Equipamentos revisados e em conformidade com as normas NR-18 e NR-35.</p>
+            <h5>Segurança e NR-18</h5>
+            <p class="text-muted mb-0">Equipamentos em conformidade com a NR-18 e demais normas regulamentadoras de segurança.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4">
-          <div class="service-card">
-            <div class="service-icon"><i class="bi bi-cash-coin"></i></div>
-            <h4>Planos Flexíveis</h4>
-            <p class="text-muted">Locação por dia, semana ou mês, com condições comerciais sob medida para sua obra.</p>
+          <div class="card service-card p-4">
+            <div class="service-icon"><i class="bi bi-headset"></i></div>
+            <h5>Suporte Especializado</h5>
+            <p class="text-muted mb-0">Atendimento técnico para escolha do equipamento ideal para cada etapa da sua obra.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Diferenciais -->
-  <section id="diferenciais" class="py-5">
+  <!-- ===== Diferenciais ===== -->
+  <section id="diferenciais" class="diferenciais">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="section-title">Por que escolher a Gonzaga?</h2>
-        <p class="text-muted mt-3">Compromisso com segurança, prazo e qualidade</p>
+        <h2 class="section-title text-white">Por que escolher a Gonzaga?</h2>
+        <div class="divider-accent"></div>
+        <p class="section-subtitle text-light opacity-75">Compromisso com segurança, prazo e qualidade em cada projeto.</p>
       </div>
       <div class="row g-4">
-        <div class="col-md-4">
-          <div class="feature-box d-flex">
-            <i class="bi bi-check-circle me-3"></i>
-            <div>
-              <h5>Equipamentos Resistentes</h5>
-              <p class="text-muted mb-0">Materiais de alta durabilidade, revisados a cada locação.</p>
-            </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="diferencial-item">
+            <i class="bi bi-award"></i>
+            <h5>Qualidade Garantida</h5>
+            <p>Materiais certificados e revisão constante de todos os equipamentos.</p>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="feature-box d-flex">
-            <i class="bi bi-clock-history me-3"></i>
-            <div>
-              <h5>Entrega Rápida</h5>
-              <p class="text-muted mb-0">Agilidade na entrega e retirada para não parar sua obra.</p>
-            </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="diferencial-item">
+            <i class="bi bi-clock-history"></i>
+            <h5>Entrega Rápida</h5>
+            <p>Logística ágil para sua obra não parar. Prazo cumprido com rigor.</p>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="feature-box d-flex">
-            <i class="bi bi-award me-3"></i>
-            <div>
-              <h5>Atendimento Especializado</h5>
-              <p class="text-muted mb-0">Suporte técnico para escolha do melhor equipamento.</p>
-            </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="diferencial-item">
+            <i class="bi bi-cash-coin"></i>
+            <h5>Preço Justo</h5>
+            <p>Condições competitivas para locação e venda, com flexibilidade de pagamento.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="diferencial-item">
+            <i class="bi bi-people"></i>
+            <h5>Equipe Especializada</h5>
+            <p>Profissionais treinados e capacitados para atendimento técnico de excelência.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contato / Formulário -->
-  <section id="contato" class="py-5 bg-light-gz">
+  <!-- ===== Catálogo de Produtos ===== -->
+  <section id="catalogo" class="catalogo">
     <div class="container">
-      <div class="row g-4 align-items-stretch">
-        <div class="col-lg-5">
-          <h2 class="section-title text-start">Solicite seu Orçamento</h2>
-          <p class="text-muted mt-3">Preencha o formulário e receba uma proposta personalizada. Após o envio, você será direcionado ao WhatsApp para finalizar o atendimento.</p>
-          <ul class="list-unstyled mt-4">
-            <li class="mb-3"><i class="bi bi-telephone-fill text-orange me-2"></i> (11) 99599-7771 / (11) 98656-8686</li>
-            <li class="mb-3"><i class="bi bi-whatsapp text-success me-2"></i> (11) 99599-7771 / (11) 98656-8686</li>
-            <li class="mb-3"><i class="bi bi-envelope-fill text-orange me-2"></i> gonzagalocacao@hotmail.com</li>
-            <li class="mb-3"><i class="bi bi-geo-alt-fill text-orange me-2"></i> Avenida Americo Tornero, 676, Jardim Maua, Mauá-SP</li>
-          </ul>
+      <div class="text-center mb-5">
+        <h2 class="section-title">Catálogo de Produtos</h2>
+        <div class="divider-accent"></div>
+        <p class="section-subtitle">Confira nossos produtos disponíveis para venda. Compre direto pelo WhatsApp com atendimento imediato.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Produto 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card">
+            <div class="product-icon"><i class="bi bi-bricks"></i></div>
+            <h5>Andaimes Tubulares</h5>
+            <p class="product-desc">Estrutura tubular modular para obras e reformas. Resistente, fácil montagem e em conformidade com a NR-18.</p>
+            <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
+              <div class="product-price">R$ 189,00 <small>/m²</small></div>
+            </div>
+            <a class="btn btn-wa-product"
+               href="https://wa.me/5511995997771?text=Ol%C3%A1!%20Tenho%20interesse%20em%20comprar%20*Andaimes%20Tubulares*%20(R%24%20189%2C00%2Fm%C2%B2).%20Poderia%20me%20atender?"
+               target="_blank" rel="noopener">
+              <i class="bi bi-whatsapp"></i> Comprar via WhatsApp
+            </a>
+          </div>
         </div>
 
+        <!-- Produto 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card">
+            <div class="product-icon"><i class="bi bi-rulers"></i></div>
+            <h5>Escoras Metálicas</h5>
+            <p class="product-desc">Escoras reguláveis para lajes e vãos. Alta resistência, ajuste rápido e segurança na sustentação de estruturas.</p>
+            <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
+              <div class="product-price">R$ 79,00 <small>/un.</small></div>
+            </div>
+            <a class="btn btn-wa-product"
+               href="https://wa.me/5511995997771?text=Ol%C3%A1!%20Tenho%20interesse%20em%20comprar%20*Escoras%20Met%C3%A1licas*%20(R%24%2079%2C00%2Fun.).%20Poderia%20me%20atender?"
+               target="_blank" rel="noopener">
+              <i class="bi bi-whatsapp"></i> Comprar via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Produto 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card">
+            <div class="product-icon"><i class="bi bi-layers"></i></div>
+            <h5>Plataformas de Trabalho</h5>
+            <p class="product-desc">Plataformas elevadas para acesso seguro em alturas. Suporte robusto e superfície antiderrapante.</p>
+            <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
+              <div class="product-price">R$ 349,00 <small>/un.</small></div>
+            </div>
+            <a class="btn btn-wa-product"
+               href="https://wa.me/5511995997771?text=Ol%C3%A1!%20Tenho%20interesse%20em%20comprar%20*Plataformas%20de%20Trabalho*%20(R%24%20349%2C00%2Fun.).%20Poderia%20me%20atender?"
+               target="_blank" rel="noopener">
+              <i class="bi bi-whatsapp"></i> Comprar via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Produto 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card">
+            <div class="product-icon"><i class="bi bi-shield-lock"></i></div>
+            <h5>Proteção contra Queda</h5>
+            <p class="product-desc">Conjunto de EPIs e sistemas de proteção coletiva: cintos, talabartes e redes de segurança certificadas.</p>
+            <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
+              <div class="product-price">R$ 129,00 <small>/kit</small></div>
+            </div>
+            <a class="btn btn-wa-product"
+               href="https://wa.me/5511995997771?text=Ol%C3%A1!%20Tenho%20interesse%20em%20comprar%20*Prote%C3%A7%C3%A3o%20contra%20Queda*%20(R%24%20129%2C00%2Fkit).%20Poderia%20me%20atender?"
+               target="_blank" rel="noopener">
+              <i class="bi bi-whatsapp"></i> Comprar via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Produto 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card">
+            <div class="product-icon"><i class="bi bi-grid-3x3-gap"></i></div>
+            <h5>Telas e Bandejas</h5>
+            <p class="product-desc">Telas de proteção periférica e bandejas para proteção contra queda de materiais em obras verticais.</p>
+            <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
+              <div class="product-price">R$ 59,00 <small>/m²</small></div>
+            </div>
+            <a class="btn btn-wa-product"
+               href="https://wa.me/5511995997771?text=Ol%C3%A1!%20Tenho%20interesse%20em%20comprar%20*Telas%20e%20Bandejas*%20(R%24%2059%2C00%2Fm%C2%B2).%20Poderia%20me%20atender?"
+               target="_blank" rel="noopener">
+              <i class="bi bi-whatsapp"></i> Comprar via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Produto 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card">
+            <div class="product-icon"><i class="bi bi-diagram-3"></i></div>
+            <h5>Andaimes Suspensos</h5>
+            <p class="product-desc">Cestos e andaimes suspensos por cabos de aço para fachadas e manutenção predial. Segurança e mobilidade.</p>
+            <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
+              <div class="product-price">R$ 1.290,00 <small>/un.</small></div>
+            </div>
+            <a class="btn btn-wa-product"
+               href="https://wa.me/5511995997771?text=Ol%C3%A1!%20Tenho%20interesse%20em%20comprar%20*Andaimes%20Suspensos*%20(R%24%201.290%2C00%2Fun.).%20Poderia%20me%20atender?"
+               target="_blank" rel="noopener">
+              <i class="bi bi-whatsapp"></i> Comprar via WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <p class="text-muted mb-0">Não encontrou o que procura? <a href="#contato" class="text-accent fw-semibold text-decoration-none">Fale com nosso time</a> para soluções sob medida.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contato ===== -->
+  <section id="contato" class="contato">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Fale Conosco</h2>
+        <div class="divider-accent"></div>
+        <p class="section-subtitle">Solicite seu orçamento ou tire dúvidas com nossa equipe especializada.</p>
+      </div>
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-5">
+          <div class="bg-white p-4 rounded-4 h-100 shadow-sm">
+            <h5 class="fw-bold mb-4" style="color: var(--ga-primary);">Informações de Contato</h5>
+            <div class="contact-info-item">
+              <i class="bi bi-geo-alt"></i>
+              <div><strong>Endereço</strong><br>Avenida Americo Tornero, 676, Jardim Maua, Mauá-SP</div>
+            </div>
+            <div class="contact-info-item">
+              <i class="bi bi-telephone"></i>
+              <div><strong>Telefone</strong><br>(11) 99599-7771 / (11) 98656-8686</div>
+            </div>
+            <div class="contact-info-item">
+              <i class="bi bi-whatsapp"></i>
+              <div><strong>WhatsApp</strong><br>(11) 99599-7771</div>
+            </div>
+            <div class="contact-info-item">
+              <i class="bi bi-envelope"></i>
+              <div><strong>E-mail</strong><br>gonzagalocacao@hotmail.com</div>
+            </div>
+            <div class="contact-info-item">
+              <i class="bi bi-clock"></i>
+              <div><strong>Atendimento</strong><br>Seg a Sex: 08h às 18h · Sáb: 08h às 12h</div>
+            </div>
+          </div>
+        </div>
         <div class="col-lg-7">
-          <div class="bg-white p-4 p-md-5 rounded shadow-sm">
-            <form id="orcamentoForm" action="https://formspree.io/f/xeebpzkg" method="POST" novalidate>
-              <div class="mb-3">
-                <label for="nome" class="form-label">Nome completo *</label>
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Seu nome" required />
+          <div class="bg-white p-4 rounded-4 h-100 shadow-sm">
+            <form id="contactForm" action="https://formspree.io/f/xeebpzkg" method="POST">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="nome">Nome completo</label>
+                  <input type="text" name="nome" class="form-control" id="nome" required placeholder="Seu nome" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="telefone">Telefone / WhatsApp</label>
+                  <input type="tel" name="telefone" class="form-control" id="telefone" required placeholder="(11) 99999-9999" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="email">E-mail</label>
+                  <input type="email" name="email" class="form-control" id="email" required placeholder="voce@email.com" />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="assunto">Assunto</label>
+                  <select class="form-select" name="assunto" id="assunto">
+                    <option>Orçamento de locação</option>
+                    <option>Compra de produtos</option>
+                    <option>Montagem técnica</option>
+                    <option>Outro assunto</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="mensagem">Mensagem</label>
+                  <textarea class="form-control" name="mensagem" id="mensagem" rows="4" required placeholder="Descreva sua necessidade..."></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-submit">Enviar mensagem <i class="bi bi-send ms-1"></i></button>
+                </div>
               </div>
-              <div class="mb-3">
-                <label for="telefone" class="form-label">Telefone / WhatsApp *</label>
-                <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="(00) 00000-0000" required />
-              </div>
-              <div class="mb-3">
-                <label for="equipamento" class="form-label">Equipamento de interesse *</label>
-                <select class="form-select" id="equipamento" name="equipamento" required>
-                  <option value="" selected disabled>Selecione...</option>
-                  <option value="Andaimes">Compra de Andaimes</option>
-                  <option value="Andaimes">Locação de Andaimes</option>
-                  <option value="Andaimes">Compra de Outro Tipo de Item</option>
-                  <option value="Escoras Metálicas">Escoras Metálicas</option>
-                  <option value="Montagem Técnica">Montagem Técnica</option>
-                  <option value="Outro">Outro / Não sei informar</option>
-                </select>
-              </div>
-              <div class="mb-3">
-                <label for="mensagem" class="form-label">Mensagem</label>
-                <textarea class="form-control" id="mensagem" name="mensagem" rows="4" placeholder="Descreva sua necessidade, prazo e local da obra"></textarea>
-              </div>
-
-              <div id="formAlert" class="alert alert-form mb-3" role="alert"></div>
-
-              <button type="submit" class="btn btn-orange w-100" id="submitBtn">
-                <span id="submitText">Enviar e falar no WhatsApp</span>
-                <span id="submitSpinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
-              </button>
             </form>
           </div>
         </div>
@@ -393,123 +735,123 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-4">
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6">
-          <span class="fw-bold text-white">GONZAGA <span class="text-orange">| Andaimes e Escoras Metálicas</span></span>
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h5 class="navbar-brand d-inline-block mb-3" style="font-size:1.5rem;">Gonzaga<span class="brand-accent"> Andaimes</span></h5>
+          <p class="mb-0">Soluções completas em andaimes e equipamentos para construção civil. Segurança, qualidade e compromisso com o seu projeto.</p>
         </div>
-        <div class="col-md-6 text-md-end">
-          <small>&copy; 2026 Gonzaga Locação de Andaimes. Todos os direitos reservados.</small>
+        <div class="col-6 col-lg-2">
+          <h6>Navegação</h6>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#hero">Início</a></li>
+            <li class="mb-2"><a href="#servicos">Serviços</a></li>
+            <li class="mb-2"><a href="#diferenciais">Diferenciais</a></li>
+            <li class="mb-2"><a href="#catalogo">Catálogo</a></li>
+            <li class="mb-2"><a href="#contato">Contato</a></li>
+          </ul>
         </div>
+        <div class="col-6 col-lg-3">
+          <h6>Contato</h6>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2 text-accent"></i>Avenida Americo Tornero, 676, Jardim Maua, Mauá-SP</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2 text-accent"></i>(11) 99599-7771 / (11) 98656-8686</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2 text-accent"></i>gonzagalocacao@hotmail.com</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h6>Siga-nos</h6>
+          <p class="mb-3">Acompanhe novidades e projetos nas redes sociais.</p>
+          <div class="social-links">
+            <a href="https://instagram.com/gonzagaandaimes" class="social-link instagram" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://facebook.com/gonzagaandaimes" class="social-link facebook" target="_blank" rel="noopener" aria-label="Facebook">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="https://wa.me/5511995997771" class="social-link whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <i class="bi bi-whatsapp"></i>
+            </a>
+            <a href="https://linkedin.com/company/gonzagaandaimes" class="social-link linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <i class="bi bi-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom text-center text-md-start d-md-flex justify-content-between">
+        <div>&copy; <span id="ano"></span> Gonzaga Andaimes. Todos os direitos reservados.</div>
+        <div class="mt-2 mt-md-0">Desenvolvido com <i class="bi bi-heart-fill text-accent"></i> para a construção civil.</div>
       </div>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/5511995997771?text=Ol%C3%A1%2C%20gostaria%20de%20um%20or%C3%A7amento%20de%20andaimes." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/5511995997771?text=Ol%C3%A1!%20Gostaria%20de%20um%20atendimento." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
     <i class="bi bi-whatsapp"></i>
   </a>
 
   <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    (function () {
-      const form = document.getElementById('orcamentoForm');
-      const alertBox = document.getElementById('formAlert');
-      const submitBtn = document.getElementById('submitBtn');
-      const submitText = document.getElementById('submitText');
-      const submitSpinner = document.getElementById('submitSpinner');
+    // Ano atual no footer
+    document.getElementById('ano').textContent = new Date().getFullYear();
 
-      // Número de WhatsApp da empresa (somente dígitos, com DDI 55)
-      const WHATSAPP_NUMBER = '5511995997771';
+    // Navbar scroll effect
+    const navbar = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
 
-      function showAlert(message, type) {
-        alertBox.className = 'alert alert-' + type + ' mb-3';
-        alertBox.textContent = message;
-        alertBox.style.display = 'block';
-      }
-
-      function hideAlert() {
-        alertBox.style.display = 'none';
-      }
-
-      function setLoading(loading) {
-        if (loading) {
-          submitBtn.disabled = true;
-          submitText.textContent = 'Enviando...';
-          submitSpinner.classList.remove('d-none');
-        } else {
-          submitBtn.disabled = false;
-          submitText.textContent = 'Enviar e falar no WhatsApp';
-          submitSpinner.classList.add('d-none');
-        }
-      }
-
-      function buildWhatsAppMessage(data) {
-        const msg =
-          'Olá, Gonzaga! Acabei de enviar um orçamento pelo site com os dados abaixo:\n\n' +
-          '*Nome:* ' + (data.nome || '-') + '\n' +
-          '*Telefone:* ' + (data.telefone || '-') + '\n' +
-          '*Equipamento:* ' + (data.equipamento || '-') + '\n' +
-          '*Mensagem:* ' + (data.mensagem || '-');
-        return encodeURIComponent(msg);
-      }
-
-      function redirectToWhatsApp(data) {
-        const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + buildWhatsAppMessage(data);
-        window.open(url, '_blank');
-      }
-
-      form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        hideAlert();
-
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
-
-        const formData = new FormData(form);
-        const payload = {
-          nome: formData.get('nome') || '',
-          telefone: formData.get('telefone') || '',
-          equipamento: formData.get('equipamento') || '',
-          mensagem: formData.get('mensagem') || ''
-        };
-
-        setLoading(true);
-
-        try {
-          const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-          });
-
-          if (response.ok) {
-            showAlert('Orçamento enviado com sucesso! Redirecionando para o WhatsApp...', 'success');
-            redirectToWhatsApp(payload);
-            form.reset();
-          } else {
-            const data = await response.json().catch(() => ({}));
-            const errMsg = (data && data.errors && data.errors.length)
-              ? data.errors.map(function (err) { return err.message; }).join(', ')
-              : 'Não foi possível enviar o formulário. Tente novamente.';
-            showAlert(errMsg, 'danger');
-            redirectToWhatsApp(payload);
-          }
-        } catch (error) {
-          showAlert('Erro de conexão. Redirecionando para o WhatsApp para continuar o atendimento.', 'warning');
-          redirectToWhatsApp(payload);
-        } finally {
-          setLoading(false);
+    // Fechar menu mobile ao clicar em link
+    const navLinks = document.querySelectorAll('#navMenu .nav-link, #navMenu .btn-wa-nav');
+    const menuCollapse = document.getElementById('navMenu');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 992 && menuCollapse.classList.contains('show')) {
+          new bootstrap.Collapse(menuCollapse).hide();
         }
       });
-    })();
+    });
+
+    // Formulário de contato via Formspree com redirecionamento para WhatsApp
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          // Sucesso: redireciona para WhatsApp
+          const nome = formData.get('nome') || 'Cliente';
+          const telefone = formData.get('telefone') || '';
+          const email = formData.get('email') || '';
+          const assunto = formData.get('assunto') || '';
+          const mensagem = formData.get('mensagem') || '';
+
+          const texto = `Olá! Sou ${nome}. Assunto: ${assunto}. Telefone: ${telefone} E-mail: ${email} Mensagem: ${mensagem}`;
+          const encodedText = encodeURIComponent(texto);
+          const waUrl = `https://wa.me/5511995997771?text=${encodedText}`;
+          window.open(waUrl, '_blank');
+
+          // Opcional: limpar formulário
+          form.reset();
+        } else {
+          alert('Erro ao enviar mensagem. Por favor, tente novamente.');
+        }
+      } catch (error) {
+        alert('Erro de conexão. Verifique sua internet e tente novamente.');
+      }
+    });
   </script>
 </body>
-
 </html>
