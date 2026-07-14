@@ -385,6 +385,36 @@
     }
     .wa-float:hover { transform: scale(1.1); color: #fff; }
 
+     .ig-float {
+      position: fixed;
+      bottom: 90px; right: 24px;
+      width: 60px; height: 60px;
+      background: #dd2a7b;
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 10px 30px #dd2a7b;
+      z-index: 999;
+      transition: transform 0.25s ease;
+    }
+    .ig-float:hover { transform: scale(1.1); color: #fff; }
+
+    .fb-float {
+      position: fixed;
+      bottom: 155px; right: 25px;
+      width: 60px; height: 60px;
+      background: #1877F2;
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 10px 30px #1877F2;
+      z-index: 999;
+      transition: transform 0.25s ease;
+    }
+    .fb-float:hover { transform: scale(1.1); color: #fff; }
+
     @media (max-width: 768px) {
       section { padding: 60px 0; }
       .hero { min-height: auto; padding: 120px 0 70px; }
@@ -798,6 +828,12 @@
   <!-- WhatsApp Float -->
   <a href="https://wa.me/5511995997771?text=Ol%C3%A1!%20Gostaria%20de%20um%20atendimento." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
     <i class="bi bi-whatsapp"></i>
+  </a>
+  <a href="https://wa.me/5511995997771?text=Ol%C3%A1!%20Gostaria%20de%20um%20atendimento." class="ig-float" target="_blank" rel="noopener" aria-label="Instagram">
+    <i class="bi bi-instagram"></i>
+  </a>
+  <a href="https://wa.me/5511995997771?text=Ol%C3%A1!%20Gostaria%20de%20um%20atendimento." class="fb-float" target="_blank" rel="noopener" aria-label="Facebook">
+    <i class="bi bi-facebook"></i>
   </a>
 
   <!-- Bootstrap JS -->
