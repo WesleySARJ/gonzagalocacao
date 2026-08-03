@@ -191,6 +191,12 @@
 
     * { box-sizing: border-box; }
 
+    .section-galeria {
+      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--ga-primary);
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       color: #1f2937;
@@ -648,7 +654,7 @@
 <body>
 
   <section class="gallery-header" id="galeria">
-  <h1>Galeria de Produtos</h1>
+  <h1 class = "section-galeria">Galeria de Produtos</h1>        <div class="divider-accent"></div>
   <p>Conheça nossos equipamentos para locação</p>
 </section>
 
@@ -1197,3 +1203,4 @@ masonryItems.forEach((item, i) => {
   </script>
 </body>
 </html>
+
