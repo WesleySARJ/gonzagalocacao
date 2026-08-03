@@ -23,6 +23,161 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
+
+    /* ===== GALERIA MOSAICO (MASONRY) ===== */
+.gallery-header {
+  text-align: center;
+  padding: 60px 20px 30px;
+}
+.gallery-header h1 {
+  font-size: 2.2rem;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+}
+.gallery-header p {
+  color: #666;
+  font-size: 1.05rem;
+}
+
+/* Filtros */
+.filters {
+  text-align: center;
+  padding: 20px 0 40px;
+}
+.filter-btn {
+  background: #fff;
+  border: 2px solid #1a1a2e;
+  color: #1a1a2e;
+  padding: 10px 24px;
+  margin: 0 6px 10px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.filter-btn:hover,
+.filter-btn.active {
+  background: #1a1a2e;
+  color: #fff;
+}
+
+/* Grid masonry */
+.masonry-grid {
+  column-count: 3;
+  column-gap: 30px;
+  padding: 0px 0px 0px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+@media (max-width: 1200px) { .masonry-grid { column-count: 3; } }
+@media (max-width: 768px)  { .masonry-grid { column-count: 2; column-gap: 15px; padding: 0 20px 40px; } }
+@media (max-width: 480px)  { .masonry-grid { column-count: 1; } }
+
+/* Cards */
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.5s ease backwards;
+}
+.masonry-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+.masonry-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.masonry-item:hover img { transform: scale(1.05); }
+
+/* Overlay */
+.masonry-item .overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(26,26,46,0.9) 0%, rgba(26,26,46,0.6) 60%, transparent 100%);
+  color: #fff;
+  padding: 30px 20px 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+.masonry-item:hover .overlay { transform: translateY(0); }
+.masonry-item .overlay h3 { font-size: 1.05rem; margin-bottom: 4px; }
+.masonry-item .overlay span {
+  font-size: 0.8rem;
+  color: #e94560;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 80%;
+  max-height: 75vh;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+.lightbox .lb-caption {
+  color: #fff;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+.lightbox .lb-caption span {
+  color: #e94560;
+  font-size: 0.85rem;
+  display: block;
+  margin-top: 5px;
+}
+.lightbox .close-btn {
+  position: absolute;
+  top: 25px; right: 35px;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+  user-select: none;
+}
+.lightbox .close-btn:hover { color: #e94560; }
+.lightbox .nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  user-select: none;
+  padding: 15px;
+  transition: color 0.3s;
+}
+.lightbox .nav-btn:hover { color: #e94560; }
+.lightbox .prev-btn { left: 20px; }
+.lightbox .next-btn { right: 20px; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
     :root {
       --ga-primary: #1b2a4a;
       --ga-secondary: #2c4373;
@@ -423,7 +578,14 @@
     }
   </style>
 </head>
-<body>
+
+<div class="lightbox" id="lightbox">
+  <span class="close-btn" id="closeLightbox">&times;</span>
+  <span class="nav-btn prev-btn" id="prevBtn">&#10094;</span>
+  <img src="" alt="" id="lightboxImg">
+  <span class="nav-btn next-btn" id="nextBtn">&#10095;</span>
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
 
   <!-- ===== Navbar ===== -->
   <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
@@ -483,7 +645,71 @@
       </div>
     </div>
   </header>
+<body>
 
+  <section class="gallery-header" id="galeria">
+  <h1>Galeria de Produtos</h1>
+  <p>Conheça nossos equipamentos para locação</p>
+</section>
+
+<div class="filters">
+  <button class="filter-btn active" data-filter="all">Todos</button>
+  <button class="filter-btn" data-filter="andaimes">Andaimes</button>
+  <button class="filter-btn" data-filter="escoras">Escoras Metálicas</button>
+  <button class="filter-btn" data-filter="acessorios">Acessórios</button>
+</div>
+
+<div class="masonry-grid" id="masonryGrid">
+
+  <div class="masonry-item" data-category="escoras">
+    <img src="images/escoras.png" alt="Escora 3,80m">
+    <div class="overlay">
+      <h3>Escora 3,80m</h3>
+      <span>Escoras Metálicas</span>
+    </div>
+  </div>
+
+  <div class="masonry-item" data-category="acessorios">
+    <img src="images/rodas.png" alt="Rodas">
+    <div class="overlay">
+      <h3>Rodas(Carrinhos)</h3>
+      <span>Acessórios</span>
+    </div>
+  </div>
+
+  <div class="masonry-item" data-category="andaimes">
+    <img src="images/andaimes.png" alt="Andaime Modular">
+    <div class="overlay">
+      <h3>Andaime Modular</h3>
+      <span>Andaimes</span>
+    </div>
+  </div>
+
+  <div class="masonry-item" data-category="acessorios">
+    <img src="/images/gravata.png" alt="Gravata Metálica">
+    <div class="overlay">
+      <h3>Gravata Metálica</h3>
+      <span>Acessórios</span>
+    </div>
+  </div>
+
+  <div class="masonry-item" data-category="andaimes">
+    <img src="images/plataformas.png" alt="Plataformas">
+    <div class="overlay">
+      <h3>Plataformas</h3>
+      <span>Andaimes</span>
+    </div>
+  </div>
+
+  <div class="masonry-item" data-category="escoras">
+    <img src="images/escoras2.png" alt="Escora Ajustável">
+    <div class="overlay">
+      <h3>Escora Ajustável</h3>
+      <span>Escoras Metálicas</span>
+    </div>
+  </div>
+
+</div>
   <!-- ===== Serviços ===== -->
   <section id="servicos">
     <div class="container">
@@ -645,8 +871,8 @@
         <div class="col-md-6 col-lg-4">
           <div class="product-card">
             <div class="product-icon"><i class="bi bi-shield-lock"></i></div>
-            <h5>Proteção contra Queda</h5>
-            <p class="product-desc">Conjunto de EPIs e sistemas de proteção coletiva: cintos, talabartes e redes de segurança certificadas.</p>
+            <h5>-</h5>
+            <p class="product-desc">-</p>
             <div class="d-flex justify-content-between align-items-center mb-3 mt-2">
               <div class="product-price">R$ - <small>/kit</small></div>
             </div>
@@ -893,6 +1119,81 @@
         alert('Erro de conexão. Verifique sua internet e tente novamente.');
       }
     });
+
+    // ===== FILTROS =====
+const filterBtns = document.querySelectorAll('.filter-btn');
+const masonryItems = document.querySelectorAll('.masonry-item');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    masonryItems.forEach(item => {
+      if (filter === 'all' || item.dataset.category === filter) {
+        item.style.display = 'block';
+        item.style.animation = 'none';
+        setTimeout(() => { item.style.animation = 'fadeIn 0.4s ease'; }, 10);
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  });
+});
+
+// ===== LIGHTBOX =====
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lbCaption = document.getElementById('lbCaption');
+const closeBtn = document.getElementById('closeLightbox');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+let currentItems = [];
+let currentIndex = 0;
+
+masonryItems.forEach(item => {
+  item.addEventListener('click', () => {
+    currentItems = Array.from(masonryItems).filter(i => i.style.display !== 'none');
+    currentIndex = currentItems.indexOf(item);
+    openLightbox();
+  });
+});
+
+function openLightbox() {
+  const item = currentItems[currentIndex];
+  const img = item.querySelector('img');
+  const title = item.querySelector('h3').textContent;
+  const category = item.querySelector('span').textContent;
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lbCaption.innerHTML = `${title}<span>${category}</span>`;
+  lightbox.classList.add('active');
+}
+
+function closeLightbox() { lightbox.classList.remove('active'); }
+function nextItem() { currentIndex = (currentIndex + 1) % currentItems.length; openLightbox(); }
+function prevItem() { currentIndex = (currentIndex - 1 + currentItems.length) % currentItems.length; openLightbox(); }
+
+closeBtn.addEventListener('click', closeLightbox);
+nextBtn.addEventListener('click', nextItem);
+prevBtn.addEventListener('click', prevItem);
+
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') nextItem();
+  if (e.key === 'ArrowLeft') prevItem();
+});
+
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+// Delay escalonado na entrada
+masonryItems.forEach((item, i) => {
+  item.style.animationDelay = `${i * 0.08}s`;
+});
   </script>
 </body>
 </html>
